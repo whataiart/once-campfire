@@ -30,11 +30,13 @@ To persist storage of the database and file attachments, map a volume to `/rails
 
 To configure additional features, you can set the following environment variables:
 
-- `SSL_DOMAIN` - enable automatic SSL via Let's Encrypt for the given domain name.
+- `SSL_DOMAIN` - enable automatic SSL via Let's Encrypt for the given domain name
 - `DISABLE_SSL` - alternatively, set `DISABLE_SSL` to serve over plain HTTP
 - `VAPID_PUBLIC_KEY`/`VAPID_PRIVATE_KEY` - set these to a valid keypair to
   allow sending Web Push notifications. You can generate a new keypair by running
   `/script/admin/create-vapid-key`
+- `SENTRY_DSN` - to enable error reporting to sentry in production, supply your
+  DSN here
 
 For example:
 
