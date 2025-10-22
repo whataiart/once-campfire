@@ -32,10 +32,6 @@
   <body class="<%= body_classes %>" data-controller="local-time lightbox">
     <a href="#main-content" class="skip-navigation btn">Skip to main content</a>
 
-    <nav id="nav">
-      <%= yield :nav %>
-    </nav>
-
     <% if notice = flash[:notice] || flash[:alert] %>
       <div class="flash" data-controller="element-removal" data-action="animationend->element-removal#remove">
         <div class="flash__inner shadow" style="<%= "--flash-background: var(--color-negative)" if flash[:alert] %>">
@@ -57,14 +53,6 @@
       </footer>
     </main>
 
-    <aside id="sidebar" data-controller="toggle-class" data-toggle-class-toggle-class="open">
-      <%= yield :sidebar %>
-    </aside>
-
     <%= render "layouts/lightbox" %>
-
-    <a href="https://once.com" id="app-logo" target="_blank" aria-label="Once software from 37signals home page">
-      <%= image_tag "campfire-icon.png", alt: "Campfire logo", width: 256, height: 216 %>
-    </a>
   </body>
 </html>

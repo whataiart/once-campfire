@@ -5,10 +5,6 @@
   <meta name="current-room-id" content="<%= @room.id %>">
 <% end %>
 
-<%= render "rooms/show/nav", room: @room %>
-
-<% content_for :sidebar, sidebar_turbo_frame_tag(src: user_sidebar_path) %>
-
 <%= message_area_tag(@room) do %>
   <%= render "messages/template" %>
 
