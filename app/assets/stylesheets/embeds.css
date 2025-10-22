@@ -10,11 +10,6 @@ trix-editor,
     overflow: clip;
     padding: var(--block-space) calc(var(--inline-space) * 1.5);
 
-    @media (min-width: 100ch) {
-      align-items: start;
-      flex-direction: row;
-    }
-
     .cf-twitter-avatar & {
       flex-direction: row;
     }
@@ -49,18 +44,10 @@ trix-editor,
     max-inline-size: 100%;
     overflow: clip;
 
-    @media (min-width: 100ch) {
-      inline-size: 15dvw;
-    }
-
     > * {
-      object-position: top right;
+      object-position: top left;
       inline-size: 100%;
       object-fit: contain;
-
-      @media (max-width: 100ch) {
-        object-position: top left;
-      }
     }
 
     .cf-twitter-avatar & {

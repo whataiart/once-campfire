@@ -17,11 +17,6 @@
   padding-block: calc(var(--block-space) * 1.5);
   padding-inline: var(--sidebar-inline-space);
   position: fixed;
-
-  @media (min-width: 100ch) {
-    inline-size: calc(var(--sidebar-width));
-    inset-inline-start: auto;
-  }
 }
 
 .sidebar__toggle {
@@ -51,25 +46,17 @@
     }
   }
 
-  @media (min-width: 100ch) {
-    display: none;
-    inset-block-start: var(--block-space);
-  }
-
   .open & {
     inset-block-start: var(--block-space);
+    inset-inline-start: var(--sidebar-inline-space);
 
-    @media (max-width: 100ch) {
-      inset-inline-start: var(--sidebar-inline-space);
+    & img {
+      filter: invert(0);
+    }
 
+    @media (prefers-color-scheme: dark) {
       & img {
-        filter: invert(0);
-      }
-
-      @media (prefers-color-scheme: dark) {
-        & img {
-          filter: invert(100%);
-        }
+        filter: invert(100%);
       }
     }
   }
@@ -95,11 +82,9 @@
   z-index: 3;
 
   .open & {
-    @media (max-width: 100ch) {
-      -webkit-mask-image: linear-gradient(to left, oklch(0% 0 0 / 1) 85%, oklch(0% 0 0 / 0) 99%);
-      mask-image: linear-gradient(to left, oklch(0% 0 0 / 1) 85%, oklch(0% 0 0 / 0) 99%);
-      padding-inline-start: calc(var(--btn-size) + var(--sidebar-inline-space) + (var(--column-gap) * 2.5));
-    }
+    -webkit-mask-image: linear-gradient(to left, oklch(0% 0 0 / 1) 85%, oklch(0% 0 0 / 0) 99%);
+    mask-image: linear-gradient(to left, oklch(0% 0 0 / 1) 85%, oklch(0% 0 0 / 0) 99%);
+    padding-inline-start: calc(var(--btn-size) + var(--sidebar-inline-space) + (var(--column-gap) * 2.5));
   }
 
   &.directs--new {
@@ -233,24 +218,16 @@
 .room--current {
   --btn-border-radius: 0.5em;
   --hover-filter: none;
-  --num-buttons: 1;
+  --num-buttons: 2;
 
   min-block-size: var(--btn-size);
 
   .room__contents {
     .account-has-logo & {
-      --num-buttons: 2;
+      --num-buttons: 3;
     }
 
     max-inline-size: calc(100dvw - (var(--btn-size) * var(--num-buttons)) - (var(--btn-size) + max(var(--inline-space), 1vw)) - ((var(--inline-space) + 1.8em) * 2) - var(--sidebar-width) - var(--inline-space) * var(--num-buttons));
-
-    @media (max-width: 100ch) {
-      --num-buttons: 2;
-
-      .account-has-logo & {
-        --num-buttons: 3;
-      }
-    }
   }
 }
 
@@ -300,13 +277,9 @@
   --mask: linear-gradient(to left, oklch(0% 0 0 / 1) 97%, oklch(0% 0 0 / 0) 99%);
 
   -webkit-mask-image: var(--mask);
-  display: none;
+  display: flex;
   mask-image: var(--mask);
   position: relative;
-
-  @media (max-width: 100ch) {
-    display: flex;
-  }
 
   .room {
     max-inline-size: 20ch;

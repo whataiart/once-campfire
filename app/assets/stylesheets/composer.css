@@ -7,9 +7,7 @@
 .composer__input-hint,
 .composer__context-btn {
   .composer:has(.composer__input:focus-within) & {
-    @media (max-width: 100ch) {
-      display: none;
-    }
+    display: none;
   }
 }
 
@@ -94,29 +92,6 @@
   }
 }
 
-@media (min-width: 100ch) and (any-hover: hover) and (pointer: fine) {
-  .composer__rich-text-btn {
-    display: inline-flex;
-  }
-
-  .composer--rich-text {
-    trix-toolbar {
-      display: block;
-    }
-
-    trix-editor.input {
-      margin-block-start: var(--block-space-half);
-    }
-  }
-
-  .composer--edit trix-toolbar {
-    border-block-end: 1px solid var(--color-border);
-    margin-inline: -0.8em;
-    padding-inline: 0.3em;
-    padding-block-end: 0.5em;
-  }
-}
-
 /* Typing indicator */
 .typing-indicator {
   inset-block-start: var(--indicator-position, 0.15rem);
@@ -125,12 +100,6 @@
   position: absolute;
   transition: inset-block-start 300ms ease,
               opacity 300ms ease;
-
-  .sidebar & {
-    @media (min-width: 100ch) {
-      margin-inline-start: 2vw;
-    }
-  }
 
   &.typing-indicator--active {
     --indicator-position: 0.15rem;

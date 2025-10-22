@@ -78,10 +78,7 @@
   overscroll-behavior: contain;
   position: relative;
   row-gap: var(--message-space);
-
-  @media (max-width: 100ch) {
-    padding-block-start: var(--navbar-height);
-  }
+  padding-block-start: var(--navbar-height);
 }
 
 .message {
@@ -221,21 +218,12 @@
   }
 
   .message__actions {
-    @media (max-width: 100ch) {
-      .message__options-btn {
-        --btn-padding: 0 0.5em;
+    .message__options-btn {
+      --btn-padding: 0 0.5em;
 
-        aspect-ratio: unset;
-        block-size: auto;
-        border-radius: 0.3em;
-      }
-    }
-
-    @media (min-width: 100ch) {
-      inset-block-start: 50%;
-      inset-inline-start: calc(100% + var(--message-column-gap) / 2);
-      position: absolute;
-      transform: translate(0, -50%);
+      aspect-ratio: unset;
+      block-size: auto;
+      border-radius: 0.3em;
     }
   }
 }
@@ -261,15 +249,11 @@
   column-gap: var(--inline-space-half);
   display: flex;
   grid-area: body;
-  max-inline-size: min(80ch, 85%);
+  max-inline-size: 100%;
   position: relative;
 
   .message--me & {
     flex-direction: row-reverse;
-  }
-
-  @media (max-width: 100ch) {
-    max-inline-size: 100%;
   }
 }
 
@@ -444,9 +428,7 @@ img.message__attachment {
     transform: translateX(-50%);
   }
 
-  @media (max-width: 100ch) {
-    inset-block-start: calc(var(--btn-size) / 1.5);
-  }
+  inset-block-start: calc(var(--btn-size) / 1.5);
 
   .popup-orientation-top & {
     inset-block-end: var(--btn-size);
@@ -465,9 +447,7 @@ img.message__attachment {
       inset-block-start: calc(100% - var(--border-size) * 1.5);
     }
 
-    @media (max-width: 100ch) {
-      inset-block-end: calc(var(--btn-size) / 1.5);
-    }
+    inset-block-end: calc(var(--btn-size) / 1.5);
   }
 }
 
@@ -497,11 +477,6 @@ img.message__attachment {
 
   .message__actions {
     justify-content: end;
-
-    @media (min-width: 100ch) {
-      inset-inline-end: calc(100% + var(--message-column-gap) / 2);
-      inset-inline-start: auto;
-    }
   }
 }
 
