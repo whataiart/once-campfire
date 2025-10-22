@@ -14,11 +14,12 @@ body {
   grid-template-columns: 1fr var(--sidebar-width);
   grid-template-rows: min-content 1fr;
   max-block-size: 100dvh;
+}
 
-  &.sidebar {
-    @media (min-width: 100ch) {
-      --sidebar-width: 26vw;
-    }
+@media (min-width: 100ch) {
+  body {
+    margin-inline: auto;
+    max-inline-size: 72ch;
   }
 }
 
@@ -85,18 +86,13 @@ body {
     block-size: 100dvh;
     max-block-size: 100dvh;
     z-index: 3;
-
-    @media (max-width: 100ch) {
-      inset: 0;
-      position: fixed;
-      transform: translate(100%);
-    }
+    inset: 0;
+    position: fixed;
+    transform: translate(100%);
   }
 
   &.open {
-    @media (max-width: 100ch) {
-      transform: translate(0);
-    }
+    transform: translate(0);
   }
 }
 
